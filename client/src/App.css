@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=League+Spartan:wght@400;700&display=swap');
 /*Color Classes*/
-.bg-Mercury{
+:root{
+    --color-Mercury: #DEF4FC;
+    --color-Venus:#F7CC7F;
+    --color-Earth: #545BFE;
+    --color-Mars:#FF6A45;
+    --color-Jupiter: #ECAD7A;
+    --color-Saturn: #FCCb6B;
+    --color-Uranus: #65F0D5;
+    --color-Neptune: #497EFA;
+}
+
+.bg-mercury{
     background-color: #DEF4FC;
 }
 
-.bg-Venus{
+.bg-venus{
     background-color: #F7CC7F;
 }
 
@@ -32,6 +43,14 @@
     background-color: #497EFA;
 }
 
+.spartan{
+    font-family: 'League Spartan', sans-serif;
+}
+
+.antonio{
+    font-family: 'Antonio', sans-serif;
+}
+
 *{
     margin:0;
     padding: 0;
@@ -45,6 +64,7 @@ body{
     
 }
 
+/*Navbar*/
 
 .navbar{
     display:flex;
@@ -75,6 +95,7 @@ nav{
     flex-direction: column;
     gap:15px;
     transition: all 500ms ease-in-out;
+    z-index: 5;
 }
 
 .links{
@@ -102,7 +123,7 @@ nav{
 }
 
 .hide{
-    transform: translateX(100%);
+    transform: translateX(-100%);
 }
 
 .icon{
@@ -116,18 +137,21 @@ nav{
     gap: 25px;
 }
 
+/*Content Selector*/
+
 .btn-holder{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     border-bottom:1px solid #979797;
     padding:0 24px;
     font-family: 'League Spartan', sans-serif;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 9px;
+    font-size: 12px;
     letter-spacing: 1.93px;
     color:#979797;
+    margin-bottom: 24px;
 }
 
 .info-btn{
@@ -138,6 +162,49 @@ nav{
 .active{
     color:white;
     border-bottom:3px solid #497EFA ;
+}
+
+/*Planet Display*/
+.planet-img{
+    display:flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 98px;
+}
+
+.planet-img img{
+    max-width: 100%;
+}
+
+.content-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 28px;
+}
+
+.content-text{
+    line-height: 22px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
+
+
+.source{
+    display: flex;
+    gap:4px;
+    align-items: center;
+    color:#979797;
+    font-size: 12px;
+}
+
+.source a{
+    color:#979797;
+    font-weight:700 ;
 }
 
 /*Planet Stats*/

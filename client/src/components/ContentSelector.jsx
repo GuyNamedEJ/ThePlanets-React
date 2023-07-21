@@ -1,23 +1,45 @@
 import { useState } from "react"
 
-function ContentSelector() {
-  const [content, setContent] = useState('')
-  
-  const handleClick = (e) =>{
-      console.log(e.target.value)  
+function ContentSelector({planetName, handleClick}) {
+  //const [active, setActive] = useState('overview');
+
+  const styles = {
+    border:{
+      borderColor: `var(--color-${planetName})`
+    }
   }
+
+  const setActiveTab = (button) =>{
+
+    let btns = document.querySelectorAll('.info-btn');
+    
+    btns.forEach(element => {
+      element.classList.remove('active')
+    });
+
+    button.classList.add('active');
+  }
+
+  const onClick = (e) =>{
+    let button = e.target  
+    
+    handleClick(button.getAttribute("data-value"))  
+    
+    setActiveTab(button)
+  }
+
   return (
     <section className="btn-holder">
-    <div onClick={handleClick} value={"overview"} id="m-overview" className="info-btn active">
-      <h3>Overview</h3>
+    <div style={styles.border} onClick={onClick} data-value={"overview"} id="m-overview" className="info-btn active">
+      Overview
     </div>
 
-    <div id="m-structure" className="info-btn">
-      <h3>Structure</h3>
+    <div style={styles.border} onClick={onClick} data-value={"structure"} id="m-structure" className="info-btn">
+      Structure
     </div>
 
-    <div id="m-surface" className="info-btn">
-      <h3>Surface</h3>
+    <div style={styles.border} onClick={onClick} data-value={"surface"} id="m-surface" className="info-btn">
+      Surface
     </div>
   </section>
   )

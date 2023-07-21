@@ -1,11 +1,29 @@
-function PlanetDisplay({planetImg, internalImg, geologyImg}) {
+function PlanetDisplay({activeTab, planetImages}) {
+
+  const styles = {
+    planet:{
+      display: (activeTab == 'overview') || (activeTab == 'surface') ? "block" : "none",
+    },
+
+    structure:{
+      display: activeTab == 'structure' ? "block" : "none",
+    },
+
+    geology:{
+      display: activeTab == 'surface' ? "block" : "none",
+      position: "absolute",
+      top: "50%",
+      width: "163px"
+    }
+  };
+
 
   return (
-    <section className="planet-info-container">
+    <section className="planet-img-container">
       <div className="planet-img">
-        <img id="planet-display" className="img-fluid" src={planetImg} alt="planet" />
-        <img id="internal-display" className="img-fluid" src={internalImg}  alt="planet" />
-        <img id="geology-display" className="img-fluid" src={geologyImg}  alt="planet" />
+        <img style={styles.planet} src={planetImages.planet} alt="planet" />
+        <img style={styles.structure} src={planetImages.internal} alt="planet" />
+        <img style={styles.geology} src={planetImages.geology} alt="planet" />
       </div>
       </section>
   )
