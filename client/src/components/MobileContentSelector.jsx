@@ -1,36 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-function ContentSelector({ tab, planetName, handleClick }) {
-  const [active, setActive] = useState('overview');
+function MobileContentSelector({ tab, planetName, handleClick }) {
+  const [active, setActive] = useState("overview");
 
   const styles = {
     active: {
-      background: `var(--color-${planetName})`,
+      borderBottom: `5px solid var(--color-${planetName})`,
+      color: 'white'
     },
 
     transparent: {
-      backgroundColor: "transparent",
+      borderBottom: "none",
+      color: '#979797'
     },
   };
-
-  const planetColor = `var(--color-${planetName})`;
 
   const setActiveTab = (button) => {
     let btns = document.querySelectorAll(".info-btn");
 
     btns.forEach((element) => {
-      element.style.backgroundColor = "transparent";
+      element.classList.remove("active");
     });
-    
-    button.style.backgroundColor = planetColor;
-    setActive(button.getAttribute("data-value"));
-    console.log(active);
-    console.log(styles.active);
-  };
 
-  useEffect(()=>{
-    setActive(tab)
-  },[tab])
+    button.classList.add("active");
+    setActive(button.getAttribute("data-value"));
+    console.log(`the active tab is ${active}`);
+  };
 
   const onClick = (e) => {
     let button = e.target;
@@ -40,17 +35,21 @@ function ContentSelector({ tab, planetName, handleClick }) {
     setActiveTab(button);
   };
 
+  useEffect(() => {
+    setActive(tab);
+    console.log(`active tab is ${active}`);
+  }, [tab]);
+
   return (
-    <section className="btn-holder spartan">
+    <section className="mobile-btn-holder">
       <div
         style={active == "overview" ? styles.active : styles.transparent}
         onClick={onClick}
         data-value={"overview"}
-        data-active=""
         id="m-overview"
-        className="info-btn active "
+        className="info-btn active"
       >
-        01 Overview
+        Overview
       </div>
 
       <div
@@ -60,7 +59,7 @@ function ContentSelector({ tab, planetName, handleClick }) {
         id="m-structure"
         className="info-btn"
       >
-        02 Structure
+        Structure
       </div>
 
       <div
@@ -70,9 +69,9 @@ function ContentSelector({ tab, planetName, handleClick }) {
         id="m-surface"
         className="info-btn"
       >
-        03 Surface
+        Surface
       </div>
     </section>
   );
 }
-export default ContentSelector;
+export default MobileContentSelector;

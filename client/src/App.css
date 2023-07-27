@@ -139,7 +139,7 @@ nav{
 
 /*Content Selector*/
 
-.btn-holder{
+.mobile-btn-holder{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -152,6 +152,10 @@ nav{
     letter-spacing: 1.93px;
     color:#979797;
     margin-bottom: 24px;
+}
+
+.btn-holder{
+    display: none;
 }
 
 .info-btn{
@@ -236,4 +240,100 @@ nav{
     font-size: 10px;
     letter-spacing: .73px;
     color: #979797;
+}
+
+@media screen and (min-width:768px) {
+   .mobile-btn-holder{
+    display:none;
+   }
+
+   .display-container{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 768px;
+    padding: 0 40px;
+   }
+
+   .content-container{
+    margin-left: 0;
+    width: 339px;
+    align-items: start;
+   }
+
+   .content-text{
+    text-align: left;
+   }
+
+   .btn-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 281px;
+    gap:16px;
+   }
+
+   .info-btn{
+    border: 1px solid #979797;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding-left: 20px;
+    height: 40px;
+   }
+
+   .stats{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 40px;
+    margin-top: 27px;
+   }
+
+   .stat-container{
+    flex-direction: column;
+    align-items: start;
+   }
+
+   .navbar{
+    flex-direction: column;
+   }
+
+   .hamburger{
+    display:none;
+   }
+
+   nav {
+    position: static;
+    background-color: transparent;
+    
+   }
+
+   .links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: none;
+    padding:0;
+   }
+
+   .hide{
+    transform: translate(0);
+   }
+   
+   .nav-link{
+    border-bottom: none;
+   }
+
+   .icon{
+    display:none;
+   }
+
+   .planet-img{
+    margin-top:27px;
+   }
+}
+
+@media screen and (min-width:1440px) {
+    
 }
