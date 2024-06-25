@@ -359,18 +359,29 @@ nav{
     .planet-info-display{
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap:50px;
+        gap:220px;
+        width: 1200px;
+        margin: auto;
+        justify-content: flex-end;
     }
 
     .display-container{
         margin: 0;
+        padding: 0;
         flex-direction: column;
     }
 
+    .planet-img-container{
+ 
+    }
+
+    .btn-holder{
+        width: 100%;
+    }
     .stats{
         width: 1200px;
         margin: 50px auto;
+        padding: 0;
     }
 
     .stat {
