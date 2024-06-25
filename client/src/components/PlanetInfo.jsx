@@ -53,6 +53,10 @@ function PlanetInfo({ planetData }) {
     <>
     <MobileContentSelector tab={activeTab} planetName={planetData.name} handleClick={changeData} />
       <div className="container">
+
+        <div className="planet-info-display">
+
+        
         <PlanetDisplay activeTab={contentToShow}
           planetImages={planetData.images}
         />
@@ -61,7 +65,7 @@ function PlanetInfo({ planetData }) {
         <PlanetContent planetName={planetData.name} content={content} source={source} />
         <ContentSelector tab={activeTab} planetName={planetData.name} handleClick={changeData} />
         </div>
-       
+        </div>
         <PlanetStats
           revolution={planetData.revolution}
           temp={planetData.temperature}

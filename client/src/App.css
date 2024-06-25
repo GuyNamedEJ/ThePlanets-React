@@ -135,6 +135,7 @@ nav{
 .link-container{
     display:flex;
     gap: 25px;
+   
 }
 
 /*Content Selector*/
@@ -323,6 +324,12 @@ nav{
    
    .nav-link{
     border-bottom: none;
+    
+    
+   }
+
+   .chevron {
+    display: none;
    }
 
    .icon{
@@ -335,5 +342,48 @@ nav{
 }
 
 @media screen and (min-width:1440px) {
-    
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav {
+        width: 700px;
+    }
+
+    .container{
+        margin: 50px auto;
+    }
+
+    .planet-info-display{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:50px;
+    }
+
+    .display-container{
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .stats{
+        width: 1200px;
+        margin: 50px auto;
+    }
+
+    .stat {
+        font-size: 40px;
+    }
+
+    .antonio{
+        font-size: 80px;
+    }
+
+    .content-text{
+        font-size: 14px;
+    }
+
+
 }
