@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PlanetInfo from "../components/PlanetInfo";
 import Navbar from "../components/Navbar";
-import data from '../planets.json'
+// import data from '../planets.json'
 import getPlanet from "../api";
 
 function Home() {
@@ -10,8 +10,9 @@ function Home() {
       data.find((planet) => planet.name.toLowerCase() === "earth")
   );
 
-  const setNewPlanet = (planetName) => {
-    let newPlanet = data.find((planet) => planet.name.toLowerCase() === planetName.toLowerCase());
+  const setNewPlanet = async (planetName) => {
+    let newPlanet = await getPlanet(planetName)
+    //let newPlanet = data.find((planet) => planet.name.toLowerCase() === planetName.toLowerCase());
     localStorage.setItem("planet", JSON.stringify(newPlanet));
     setPlanet(newPlanet);
   };
